@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SebetAZ</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<header class="basliq">
+  <div class="basliqici">
+
+    <a href="#" class="logo">SebetAZ</a>
+
+    <button class="btn" id="navDuzme">Menu</button>
+
+    <nav class="nav">
+      <a href="#restoranlar">Restoranlar</a>
+      <a href="#isleyir">Nece isleyir</a>
+      <a href="#bal">Bal sistemi</a>
+      <a href="#sevimli">Sevimlilerim</a>
+    </nav>
+
+    <div class="panel">
+
+      <button class="btn" id="behBtn">
+        <span id="behSayi">0</span>
+      </button>
+
+      <button class="btn" id="balBtn">
+        <span id="balSayi">0</span> bal
+      </button>
+
+      <button class="btn" id="girisBtn">Giris</button>
+
+      <button class="btn" id="qeydBtn">Qeydiyyat</button>
+
+    </div>
+
+  </div>
+</header>
+
+<section class="baslangic">
+
+  <div class="metn">
+
+    <p>Azerbaycanin en yaxsi restoranlari</p>
+
+    <h1>Masa rezerv et, xatire yarat</h1>
+
+    <p>Sevdiyiniz restoranda masa tutun, bal qazanin.</p>
+
+    <div class="blok">
+
+      <button id="axtarBtn">Restoran axtar</button>
+      <button id="isleyirBtn">Nece isleyir</button>
+
+    </div>
+
+  </div>
+
+  <div class="stat">
+
+    <div><strong>2400+</strong> istifadeci</div>
+    <div><strong>180+</strong> restoran</div>
+    <div><strong>48000+</strong> bal</div>
+
+  </div>
+
+</section>
+
+<section class="axtaris">
+
+  <div class="qutu">
+
+    <input class="input" id="seher" placeholder="Seher">
+    <input class="input" id="tarix" type="date">
+    <input class="input" id="qonaq" type="number" placeholder="Qonaq">
+
+    <button id="axtar">Axtar</button>
+
+  </div>
+
+  <div class="filtr">
+
+    <button class="aktiv" id="hamisi">Hamisi</button>
+    <button id="aciq">Aciq</button>
+    <button id="masa">Masa</button>
+    <button id="top">Top</button>
+    <button id="sevimliBtn">Sevimliler</button>
+
+  </div>
+
+</section>
+
+<section class="restoranlar">
+
+  <h2>Restoranlar</h2>
+
+  <div class="sebeke" id="restoranSebekesi">
+
+    <div class="kart"></div>
+    <div class="kart"></div>
+    <div class="kart"></div>
+
+  </div>
+
+  <button id="dahaCox">Daha cox</button>
+
+</section>
+
+<section class="isleyir">
+
+  <h2>Nece isleyir?</h2>
+
+  <div class="addim">
+
+    <div class="kart">
+      <span>01</span>
+      <h3>Restoran sec</h3>
+    </div>
+
+    <div class="kart">
+      <span>02</span>
+      <h3>Rezervasiya et</h3>
+    </div>
+
+    <div class="kart">
+      <span>03</span>
+      <h3>Bal qazan</h3>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="bal">
+
+  <h2>Bal sistemi</h2>
+
+  <div class="seviyye">
+
+    <div>Bronze</div>
+    <div>Silver</div>
+    <div>Gold</div>
+    <div>Platinum</div>
+
+  </div>
+
+  <div class="kart">
+
+    <div id="ad">Ad Soyad</div>
+    <div id="bal">0 bal</div>
+    <div id="seviyyeAdi">Silver</div>
+
+    <div class="progress">
+      <div id="progress"></div>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="elaqe">
+
+  <h2>Elaqe</h2>
+
+  <div class="elaqeici">
+
+    <div>
+      <p>+994 50 825 14 64</p>
+      <p>info@sebet.az</p>
+      <p>Baki 28 May</p>
+    </div>
+
+    <div class="form">
+
+      <input class="input" placeholder="Ad">
+      <input class="input" placeholder="Email">
+      <textarea class="input" placeholder="Mesaj"></textarea>
+
+      <button id="gonder">Gonder</button>
+
+    </div>
+
+  </div>
+
+</section>
+
+<footer class="alt">
+
+  <span>SebetAZ</span>
+  <p>2025 Butun huquqlar qorunur</p>
+
+</footer>
+
+</body>
+</html>

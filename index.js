@@ -1,303 +1,591 @@
-const restoranlar = {
+const restaurants = {
   ruby360: {
-    ad: "Ruby 360",
-    sekil: "image/ruby360.jpg",
-    melumat: "Panoramik görüntülü premium restoran.",
-    reytinq: "4.9",
-    unvan: "Bakı, Nizami küçəsi"
+    name: "Ruby 360",
+    image: "image/ruby360.jpg",
+    description: "Panoramik görüntülü premium restoran.",
+    rating: "4.9"
   },
 
   terrace145: {
-    ad: "Terrace 145",
-    sekil: "image/terrace145.jpg",
-    melumat: "Şəhərə gözəl mənzərəsi olan restoran.",
-    reytinq: "4.8",
-    unvan: "Bakı, 28 May"
+    name: "Terrace 145",
+    image: "image/terrace145.jpg",
+    description: "Şəhərə gözəl mənzərəsi olan restoran.",
+    rating: "4.8"
   },
 
   landmark: {
-    ad: "Landmark",
-    sekil: "image/landmark.jpg",
-    melumat: "Premium xidmət və rahat atmosfer.",
-    reytinq: "4.7",
-    unvan: "Bakı, Landmark"
+    name: "Landmark",
+    image: "image/landmark.jpg",
+    description: "Premium xidmət və rahat atmosfer.",
+    rating: "4.7"
   },
 
   centralbaku: {
-    ad: "Central Baku",
-    sekil: "image/indir (2).jpg",
-    melumat: "Azərbaycan mətbəxini sevənlər üçün gözəl seçim.",
-    reytinq: "4.8",
-    unvan: "Bakı, Mərkəz"
+    name: "Central Baku",
+    image: "image/indir (2).jpg",
+    description: "Azərbaycan mətbəxini sevənlər üçün gözəl seçim.",
+    rating: "4.8"
   },
 
   fisincan: {
-    ad: "Fisincan",
-    sekil: "image/indir (1).jpg",
-    melumat: "Milli mətbəx və rahat ailəvi mühit.",
-    reytinq: "4.6",
-    unvan: "Bakı, İçərişəhər"
+    name: "Fisincan",
+    image: "image/indir (1).jpg",
+    description: "Milli mətbəx və rahat ailəvi mühit.",
+    rating: "4.6"
   },
 
   elportalon: {
-    ad: "El Portalon",
-    sekil: "image/images (8).jpg",
-    melumat: "İspan stili və fərqli atmosfer.",
-    reytinq: "4.9",
-    unvan: "Bakı, Old City"
+    name: "El Portalon",
+    image: "image/images (8).jpg",
+    description: "İspan stili və fərqli atmosfer.",
+    rating: "4.9"
   },
 
   mangal: {
-    ad: "Mangal Steak House",
-    sekil: "image/images (7).jpg",
-    melumat: "Ət yeməklərini sevənlər üçün ideal restoran.",
-    reytinq: "4.7",
-    unvan: "Bakı, Gənclik"
+    name: "Mangal Steak House",
+    image: "image/images (7).jpg",
+    description: "Ət yeməklərini sevənlər üçün ideal restoran.",
+    rating: "4.7"
   },
 
   gardenhouse: {
-    ad: "Garden House",
-    sekil: "image/caption.jpg",
-    melumat: "Ailəvi restoran və sakit mühit.",
-    reytinq: "4.8",
-    unvan: "Bakı, Yasamal"
+    name: "Garden House",
+    image: "image/caption.jpg",
+    description: "Ailəvi restoran və sakit mühit.",
+    rating: "4.8"
   }
 };
 
-let qonaqlar = [];
-let yemekler = [];
-let secilenMasa = "";
+let guests = [];
+let foods = [];
+let selectedTable = "";
 
-const parametrler = new URLSearchParams(window.location.search);
-const restoranId = parametrler.get("id");
-const restoran = restoranlar[restoranId];
+const params =
+  new URLSearchParams(window.location.search);
 
-const restoranAdi = document.getElementById("restaurantName");
+const restaurantId =
+  params.get("id");
 
-if (restoranAdi && restoran) {
-  document.getElementById("restaurantName").innerText = restoran.ad;
-  document.getElementById("restaurantImage").src = restoran.sekil;
-  document.getElementById("restaurantDescription").innerText = restoran.melumat;
-  document.getElementById("restaurantRating").innerText = restoran.reytinq;
-  document.getElementById("restaurantAddress").innerText = restoran.unvan;
+const restaurant =
+  restaurants[restaurantId];
+
+if (restaurant) {
+
+  document.getElementById("restaurantName").innerText =
+    restaurant.name;
+
+  document.getElementById("restaurantImage").src =
+    restaurant.image;
+
+  document.getElementById("restaurantDescription").innerText =
+    restaurant.description;
+
+  document.getElementById("restaurantRating").innerText =
+    restaurant.rating;
 }
 
-const menyuQutusu = document.getElementById("menuGrid");
-const yemekSecimi = document.getElementById("foodSelect");
+const menuBox =
+  document.getElementById("menuGrid");
 
-if (menyuQutusu) {
+const foodSelect =
+  document.getElementById("foodSelect");
+
+if (menuBox) {
+
   fetch("https://dummyjson.com/recipes?limit=10")
-    .then(function (cavab) {
-      return cavab.json();
+
+    .then(function (response) {
+
+      return response.json();
     })
+
     .then(function (data) {
+
       data.recipes.forEach(function (recipe, index) {
-        let qiymet = 8 + index * 3;
 
-        let menyuKarti = document.createElement("div");
-        menyuKarti.className = "menu-card";
+        let price =
+          8 + index * 3;
 
-        menyuKarti.innerHTML = `
+        let menuCard =
+          document.createElement("div");
+
+        menuCard.className =
+          "menu-card";
+
+        menuCard.innerHTML = `
           <img src="${recipe.image}" alt="${recipe.name}">
+
           <div class="menu-content">
+
             <h3>${recipe.name}</h3>
-            <p>${qiymet} AZN</p>
+
+            <p>${price} AZN</p>
+
           </div>
         `;
 
-        menyuQutusu.appendChild(menyuKarti);
+        menuBox.appendChild(menuCard);
 
-        if (yemekSecimi) {
-          let secim = document.createElement("option");
-          secim.value = recipe.name;
-          secim.textContent = recipe.name + " - " + qiymet + " AZN";
-          secim.setAttribute("data-price", qiymet);
-          yemekSecimi.appendChild(secim);
+        if (foodSelect) {
+
+          let option =
+            document.createElement("option");
+
+          option.value =
+            recipe.name;
+
+          option.textContent =
+            recipe.name +
+            " - " +
+            price +
+            " AZN";
+
+          option.setAttribute(
+            "data-price",
+            price
+          );
+
+          foodSelect.appendChild(option);
         }
       });
     });
 }
 
-const masalar = document.querySelectorAll(".table");
+const tables =
+  document.querySelectorAll(".table");
 
-masalar.forEach(function (masa) {
-  masa.addEventListener("click", function () {
-    if (masa.classList.contains("reserved")) {
-      alert("Bu masa artıq rezerv olunub");
+tables.forEach(function (table) {
+
+  table.addEventListener("click", function () {
+
+    if (
+      table.classList.contains("reserved")
+    ) {
+
+      alert(
+        "Bu masa artıq rezerv olunub"
+      );
+
       return;
     }
 
-    masalar.forEach(function (item) {
+    tables.forEach(function (item) {
+
       item.classList.remove("selected");
     });
 
-    masa.classList.add("selected");
-    secilenMasa = masa.getAttribute("data-table");
+    table.classList.add("selected");
 
-    document.getElementById("selectedTableText").innerText = secilenMasa;
+    selectedTable =
+      table.getAttribute("data-table");
+
+    document.getElementById(
+      "selectedTableText"
+    ).innerText =
+      selectedTable;
   });
 });
 
-const rezervBtn = document.getElementById("reserveBtn");
+const reserveBtn =
+  document.getElementById("reserveBtn");
 
-if (rezervBtn) {
-  rezervBtn.addEventListener("click", function () {
-    let tarix = document.getElementById("reservationDate").value;
-    let saat = document.getElementById("reservationTime").value;
-    let qonaqSayi = document.getElementById("guestCount").value;
+if (reserveBtn) {
 
-    if (tarix === "" || saat === "" || qonaqSayi === "" || secilenMasa === "") {
-      alert("Zəhmət olmasa tarix, saat, qonaq sayı və masa seçin");
+  reserveBtn.addEventListener("click", function () {
+
+    let date =
+      document.getElementById(
+        "reservationDate"
+      ).value;
+
+    let time =
+      document.getElementById(
+        "reservationTime"
+      ).value;
+
+    let guestCount =
+      document.getElementById(
+        "guestCount"
+      ).value;
+
+    if (
+      date === "" ||
+      time === "" ||
+      guestCount === "" ||
+      selectedTable === ""
+    ) {
+
+      alert(
+        "Bütün məlumatları doldurun"
+      );
+
       return;
     }
 
-    alert("Rezervasiya tamamlandı! 50 bal qazandınız.");
+    alert(
+      "Rezervasiya tamamlandı! 50 bal qazandınız."
+    );
 
-    let xallar = localStorage.getItem("xallar");
+    let points =
+      localStorage.getItem("points");
 
-    if (xallar === null) {
-      xallar = 0;
+    if (points === null) {
+      points = 0;
     }
 
-    xallar = Number(xallar) + 50;
+    points =
+      Number(points) + 50;
 
-    localStorage.setItem("xallar", xallar);
+    localStorage.setItem(
+      "points",
+      points
+    );
   });
 }
 
-const qonaqElaveBtn = document.getElementById("addGuestBtn");
+const addGuestBtn =
+  document.getElementById("addGuestBtn");
 
-if (qonaqElaveBtn) {
-  qonaqElaveBtn.addEventListener("click", function () {
-    let qonaqAdi = document.getElementById("guestName").value;
+if (addGuestBtn) {
 
-    if (qonaqAdi === "") {
-      alert("Qonaq adı yazın");
+  addGuestBtn.addEventListener("click", function () {
+
+    let guestName =
+      document.getElementById(
+        "guestName"
+      ).value;
+
+    if (guestName === "") {
+
+      alert(
+        "Qonaq adı yazın"
+      );
+
       return;
     }
 
-    qonaqlar.push(qonaqAdi);
+    guests.push(guestName);
 
-    document.getElementById("guestName").value = "";
+    document.getElementById(
+      "guestName"
+    ).value = "";
 
-    qonaqlariGoster();
-    qonaqSeciminiYenile();
+    showGuests();
+
+    updateGuestSelect();
   });
 }
 
-function qonaqlariGoster() {
-  let qonaqListi = document.getElementById("guestList");
-  qonaqListi.innerHTML = "";
+function showGuests() {
 
-  qonaqlar.forEach(function (qonaq) {
-    qonaqListi.innerHTML += `<p>${qonaq}</p>`;
-  });
-}
+  let guestList =
+    document.getElementById(
+      "guestList"
+    );
 
-function qonaqSeciminiYenile() {
-  let yemekSahibi = document.getElementById("foodOwner");
-  yemekSahibi.innerHTML = "";
+  guestList.innerHTML = "";
 
-  yemekSahibi.innerHTML += `<option value="">Qonaq seç</option>`;
-  yemekSahibi.innerHTML += `<option value="all">Hamı arasında böl</option>`;
+  guests.forEach(function (guest) {
 
-  qonaqlar.forEach(function (qonaq) {
-    yemekSahibi.innerHTML += `<option value="${qonaq}">${qonaq}</option>`;
-  });
-}
-
-const yemekElaveBtn = document.getElementById("addFoodBtn");
-
-if (yemekElaveBtn) {
-  yemekElaveBtn.addEventListener("click", function () {
-    let secilenYemek = yemekSecimi.options[yemekSecimi.selectedIndex];
-    let yemekSahibi = document.getElementById("foodOwner").value;
-
-    if (yemekSecimi.value === "" || yemekSahibi === "") {
-      alert("Yemək və qonaq seçin");
-      return;
-    }
-
-    let yemek = {
-      ad: yemekSecimi.value,
-      qiymet: Number(secilenYemek.getAttribute("data-price")),
-      sahib: yemekSahibi
-    };
-
-    yemekler.push(yemek);
-
-    yemekleriGoster();
-  });
-}
-
-function yemekleriGoster() {
-  let yemekListi = document.getElementById("foodList");
-  yemekListi.innerHTML = "";
-
-  yemekler.forEach(function (yemek) {
-    let sahibMetni = yemek.sahib === "all" ? "Hamı" : yemek.sahib;
-
-    yemekListi.innerHTML += `
-      <p>${yemek.ad} - ${yemek.qiymet} AZN - ${sahibMetni}</p>
+    guestList.innerHTML += `
+      <p>${guest}</p>
     `;
   });
 }
 
-const beraberBolBtn = document.getElementById("equalSplitBtn");
+function updateGuestSelect() {
 
-if (beraberBolBtn) {
-  beraberBolBtn.addEventListener("click", function () {
-    if (qonaqlar.length === 0 || yemekler.length === 0) {
-      alert("Qonaq və yemək əlavə edin");
-      return;
-    }
+  let foodOwner =
+    document.getElementById(
+      "foodOwner"
+    );
 
-    let umumiHesab = 0;
+  foodOwner.innerHTML = `
+    <option value="">
+      Qonaq seç
+    </option>
 
-    yemekler.forEach(function (yemek) {
-      umumiHesab += yemek.qiymet;
-    });
+    <option value="all">
+      Hamı arasında böl
+    </option>
+  `;
 
-    let herNefere = umumiHesab / qonaqlar.length;
+  guests.forEach(function (guest) {
 
-    document.getElementById("splitResult").innerHTML =
-      `<p>Ümumi hesab: ${umumiHesab} AZN</p>
-       <p>Hər nəfər: ${herNefere.toFixed(2)} AZN</p>`;
+    foodOwner.innerHTML += `
+      <option value="${guest}">
+        ${guest}
+      </option>
+    `;
   });
 }
 
-const ozYediyiniOdeBtn = document.getElementById("personalSplitBtn");
+const addFoodBtn =
+  document.getElementById("addFoodBtn");
 
-if (ozYediyiniOdeBtn) {
-  ozYediyiniOdeBtn.addEventListener("click", function () {
-    if (qonaqlar.length === 0 || yemekler.length === 0) {
-      alert("Qonaq və yemək əlavə edin");
+if (addFoodBtn) {
+
+  addFoodBtn.addEventListener("click", function () {
+
+    let selectedFood =
+      foodSelect.options[
+        foodSelect.selectedIndex
+      ];
+
+    let foodOwner =
+      document.getElementById(
+        "foodOwner"
+      ).value;
+
+    if (
+      foodSelect.value === "" ||
+      foodOwner === ""
+    ) {
+
+      alert(
+        "Yemək və qonaq seçin"
+      );
+
       return;
     }
 
-    let netice = {};
+    let food = {
+      name:
+        foodSelect.value,
 
-    qonaqlar.forEach(function (qonaq) {
-      netice[qonaq] = 0;
+      price:
+        Number(
+          selectedFood.getAttribute(
+            "data-price"
+          )
+        ),
+
+      owner:
+        foodOwner
+    };
+
+    foods.push(food);
+
+    showFoods();
+  });
+}
+
+function showFoods() {
+
+  let foodList =
+    document.getElementById(
+      "foodList"
+    );
+
+  foodList.innerHTML = "";
+
+  foods.forEach(function (food) {
+
+    let ownerText =
+      food.owner === "all"
+        ? "Hamı"
+        : food.owner;
+
+    foodList.innerHTML += `
+      <p>
+        ${food.name}
+        -
+        ${food.price} AZN
+        -
+        ${ownerText}
+      </p>
+    `;
+  });
+}
+
+const equalSplitBtn =
+  document.getElementById(
+    "equalSplitBtn"
+  );
+
+if (equalSplitBtn) {
+
+  equalSplitBtn.addEventListener("click", function () {
+
+    if (
+      guests.length === 0 ||
+      foods.length === 0
+    ) {
+
+      alert(
+        "Qonaq və yemək əlavə edin"
+      );
+
+      return;
+    }
+
+    let totalBill = 0;
+
+    foods.forEach(function (food) {
+
+      totalBill += food.price;
     });
 
-    yemekler.forEach(function (yemek) {
-      if (yemek.sahib === "all") {
-        let pay = yemek.qiymet / qonaqlar.length;
+    let perPerson =
+      totalBill / guests.length;
 
-        qonaqlar.forEach(function (qonaq) {
-          netice[qonaq] += pay;
+    document.getElementById(
+      "splitResult"
+    ).innerHTML = `
+      <p>
+        Ümumi hesab:
+        ${totalBill} AZN
+      </p>
+
+      <p>
+        Hər nəfər:
+        ${perPerson.toFixed(2)} AZN
+      </p>
+    `;
+  });
+}
+
+const personalSplitBtn =
+  document.getElementById(
+    "personalSplitBtn"
+  );
+
+if (personalSplitBtn) {
+
+  personalSplitBtn.addEventListener("click", function () {
+
+    if (
+      guests.length === 0 ||
+      foods.length === 0
+    ) {
+
+      alert(
+        "Qonaq və yemək əlavə edin"
+      );
+
+      return;
+    }
+
+    let result = {};
+
+    guests.forEach(function (guest) {
+
+      result[guest] = 0;
+    });
+
+    foods.forEach(function (food) {
+
+      if (food.owner === "all") {
+
+        let share =
+          food.price /
+          guests.length;
+
+        guests.forEach(function (guest) {
+
+          result[guest] += share;
         });
+
       } else {
-        netice[yemek.sahib] += yemek.qiymet;
+
+        result[
+          food.owner
+        ] += food.price;
       }
     });
 
-    let neticeQutusu = document.getElementById("splitResult");
-    neticeQutusu.innerHTML = "";
+    let resultBox =
+      document.getElementById(
+        "splitResult"
+      );
 
-    qonaqlar.forEach(function (qonaq) {
-      neticeQutusu.innerHTML += `<p>${qonaq}: ${netice[qonaq].toFixed(2)} AZN</p>`;
+    resultBox.innerHTML = "";
+
+    guests.forEach(function (guest) {
+
+      resultBox.innerHTML += `
+        <p>
+          ${guest}:
+          ${result[guest].toFixed(2)} AZN
+        </p>
+      `;
     });
   });
+}
+
+const mapDiv =
+  document.getElementById(
+    "restaurantMap"
+  );
+
+if (
+  mapDiv &&
+  restaurant &&
+  typeof google !== "undefined"
+) {
+
+  let searchText =
+    restaurant.name + ", Baku";
+
+  fetch(
+    "https://maps.googleapis.com/maps/api/geocode/json?address=" +
+    encodeURIComponent(
+      searchText
+    ) +
+    "&key=AIzaSyBDwciGRhPc8tjHQz7RVDgZ0RW1AwxSv1U"
+  )
+
+    .then(function (response) {
+
+      return response.json();
+    })
+
+    .then(function (data) {
+
+      if (
+        data.status !== "OK"
+      ) {
+
+        alert(
+          "Restoran tapılmadı"
+        );
+
+        return;
+      }
+
+      let location =
+        data.results[0]
+        .geometry.location;
+
+      document.getElementById(
+        "restaurantAddress"
+      ).innerText =
+        data.results[0]
+        .formatted_address;
+
+      let map =
+        new google.maps.Map(
+          document.getElementById(
+            "restaurantMap"
+          ),
+          {
+            zoom: 16,
+
+            center:
+              location
+          }
+        );
+
+      new google.maps.Marker({
+
+        position:
+          location,
+
+        map:
+          map,
+
+        title:
+          restaurant.name
+      });
+    });
 }

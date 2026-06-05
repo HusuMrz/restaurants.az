@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restoran | MyRestaurants</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<header class="header">
+
+  <div class="container">
+
+    <a href="index.html" class="logo">
+      <img src="image/Brown and Maroon Minimalist Catering Logo .png" alt="logo">
+    </a>
+
+    <nav class="navbar">
+      <a href="index.html">Ana səhifə</a>
+      <a href="#menu">Menyu</a>
+      <a href="#tables">Masalar</a>
+      <a href="#reservation">Rezervasiya</a>
+      <a href="#splitBill">Qrup hesabı</a>
+    </nav>
+
+    <div class="header-buttons">
+      <a href="bonus.html" class="bonus-btn">Xallarım</a>
+    </div>
+
+  </div>
+
+</header>
+
+<section class="restaurant-detail">
+
+  <div class="restaurant-detail-container">
+
+    <div class="restaurant-detail-image">
+      <img id="restaurantImage" src="" alt="restaurant">
+    </div>
+
+    <div class="restaurant-detail-info">
+      <h1 id="restaurantName">Restoran adı</h1>
+      <p id="restaurantDescription">Restoran haqqında məlumat</p>
+      <p><strong>Reytinq:</strong> <span id="restaurantRating"></span></p>
+      <p><strong>Ünvan:</strong> <span id="restaurantAddress"></span></p>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="menu-section" id="menu">
+
+  <div class="section-title">
+    <h2>Menyu</h2>
+  </div>
+
+  <div class="menu-grid" id="menuGrid"></div>
+
+</section>
+
+<section class="table-section" id="tables">
+
+  <div class="section-title">
+    <h2>Masa seçimi</h2>
+  </div>
+
+  <div class="table-info">
+    <span>🟢 Boş</span>
+    <span>🔴 Rezerv olunub</span>
+    <span>🟡 Seçilmiş</span>
+  </div>
+
+  <div class="restaurant-map" id="tableMap">
+
+    <div class="map-label window">Pəncərə tərəf</div>
+    <div class="map-label stage">Səhnə</div>
+
+    <button type="button" class="table available" data-table="Masa 1">Masa 1<br>2 nəfər</button>
+    <button type="button" class="table reserved" data-table="Masa 2">Masa 2<br>4 nəfər</button>
+    <button type="button" class="table available" data-table="Masa 3">Masa 3<br>4 nəfər</button>
+    <button type="button" class="table available" data-table="Masa 4">Masa 4<br>6 nəfər</button>
+    <button type="button" class="table reserved vip" data-table="VIP 1">VIP 1<br>6 nəfər</button>
+    <button type="button" class="table available vip" data-table="VIP 2">VIP 2<br>8 nəfər</button>
+
+  </div>
+
+</section>
+
+<section class="reservation-section" id="reservation">
+
+  <div class="section-title">
+    <h2>Rezervasiya et</h2>
+  </div>
+
+  <div class="reservation-box">
+
+    <input type="date" id="reservationDate">
+    <input type="time" id="reservationTime">
+    <input type="number" id="guestCount" placeholder="Qonaq sayı">
+
+    <p>Seçilmiş masa: <strong id="selectedTableText">Seçilməyib</strong></p>
+
+    <button type="button" id="reserveBtn">Rezerv et</button>
+
+  </div>
+
+</section>
+
+<section class="split-bill" id="splitBill">
+
+  <div class="section-title">
+    <h2>Qrup hesabı</h2>
+  </div>
+
+  <div class="split-container">
+
+    <div class="split-box">
+
+      <h3>Qonaq əlavə et</h3>
+
+      <input type="text" id="guestName" placeholder="Qonaq adı">
+
+      <button type="button" id="addGuestBtn">Qonaq əlavə et</button>
+
+      <div id="guestList"></div>
+
+    </div>
+
+    <div class="split-box">
+
+      <h3>Menyudan yemək seç</h3>
+
+      <select id="foodSelect">
+        <option value="">Yemək seç</option>
+      </select>
+
+      <select id="foodOwner">
+        <option value="">Əvvəl qonaq əlavə et</option>
+      </select>
+
+      <button type="button" id="addFoodBtn">Yemək əlavə et</button>
+
+      <div id="foodList"></div>
+
+    </div>
+
+    <div class="split-box">
+
+      <h3>Hesabla</h3>
+
+      <button type="button" id="equalSplitBtn">Bərabər böl</button>
+
+      <button type="button" id="personalSplitBtn">Hər kəs öz yediyini ödəsin</button>
+
+      <div id="splitResult"></div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<footer class="footer">
+
+  <p>
+    MyRestaurants.&#174;
+    <br>
+    <br>
+    Bütün hüquqlar qorunur.
+  </p>
+
+</footer>
+
+<script src="prices.js"></script>
+<script src="index.js"></script>
+
+</body>
+</html>

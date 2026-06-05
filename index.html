@@ -3,184 +3,400 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SebetAZ</title>
+  <title>MyRestaurants</title>
   <link rel="stylesheet" href="index.css">
 </head>
 <body>
 
-<header class="basliq">
-  <div class="basliqici">
+<header class="header">
 
-    <a href="#" class="logo">SebetAZ</a>
+  <div class="container">
 
-    <button class="btn" id="navDuzme">Menu</button>
+    <a href="#" class="logo">
 
-    <nav class="nav">
-      <a href="#restoranlar">Restoranlar</a>
-      <a href="#isleyir">Nece isleyir</a>
-      <a href="#bal">Bal sistemi</a>
-      <a href="#sevimli">Sevimlilerim</a>
+      <img src="image/Brown and Maroon Minimalist Catering Logo .png" alt="logo">
+
+    </a>
+
+    <nav class="navbar">
+
+      <a href="#restaurants">Restoranlar</a>
+
+      <a href="#offers">Təkliflər</a>
+
+      <a href="#categories">Mətbəxlər</a>
+
+      <a href="#contact">Əlaqə</a>
+
     </nav>
 
-    <div class="panel">
+    <div class="header-buttons">
 
-      <button class="btn" id="behBtn">
-        <span id="behSayi">0</span>
+      <a href="bonus.html" class="bonus-btn">
+        Xallarım
+      </a>
+
+      <button class="login-btn">
+        Giriş
       </button>
 
-      <button class="btn" id="balBtn">
-        <span id="balSayi">0</span> bal
+      <button class="register-btn">
+        Qeydiyyat
       </button>
-
-      <button class="btn" id="girisBtn">Giris</button>
-
-      <button class="btn" id="qeydBtn">Qeydiyyat</button>
 
     </div>
 
   </div>
+
 </header>
 
-<section class="baslangic">
+<section class="hero">
 
-  <div class="metn">
+  <div class="hero-content">
 
-    <p>Azerbaycanin en yaxsi restoranlari</p>
+    <div class="hero-text">
 
-    <h1>Masa rezerv et, xatire yarat</h1>
+      <p class="hero-mini-text">
+        Azərbaycanın ən yaxşı restoran platforması
+      </p>
 
-    <p>Sevdiyiniz restoranda masa tutun, bal qazanin.</p>
+      <h1>
+        Ən yaxşı restoranları <br>
+        kəşf et və rezerv et
+      </h1>
 
-    <div class="blok">
+      <p class="hero-description">
+        Sevdiyin restoranlarda masa rezerv et,
+        bonus qazan və unudulmaz anlar yaşa.
+      </p>
 
-      <button id="axtarBtn">Restoran axtar</button>
-      <button id="isleyirBtn">Nece isleyir</button>
+      <div class="search-box">
+
+        <input type="text" placeholder="Şəhər">
+
+        <input type="text" placeholder="Restoran və ya mətbəx axtar">
+
+        <button>Axtar</button>
+
+      </div>
 
     </div>
 
-  </div>
+    <div class="hero-image">
 
-  <div class="stat">
+      <img src="image/hero logo.jpg" alt="hero">
 
-    <div><strong>2400+</strong> istifadeci</div>
-    <div><strong>180+</strong> restoran</div>
-    <div><strong>48000+</strong> bal</div>
-
-  </div>
-
-</section>
-
-<section class="axtaris">
-
-  <div class="qutu">
-
-    <input class="input" id="seher" placeholder="Seher">
-    <input class="input" id="tarix" type="date">
-    <input class="input" id="qonaq" type="number" placeholder="Qonaq">
-
-    <button id="axtar">Axtar</button>
-
-  </div>
-
-  <div class="filtr">
-
-    <button class="aktiv" id="hamisi">Hamisi</button>
-    <button id="aciq">Aciq</button>
-    <button id="masa">Masa</button>
-    <button id="top">Top</button>
-    <button id="sevimliBtn">Sevimliler</button>
-
-  </div>
-
-</section>
-
-<section class="restoranlar">
-
-  <h2>Restoranlar</h2>
-
-  <div class="sebeke" id="restoranSebekesi">
-
-    <div class="kart"></div>
-    <div class="kart"></div>
-    <div class="kart"></div>
-
-  </div>
-
-  <button id="dahaCox">Daha cox</button>
-
-</section>
-
-<section class="isleyir">
-
-  <h2>Nece isleyir?</h2>
-
-  <div class="addim">
-
-    <div class="kart">
-      <span>01</span>
-      <h3>Restoran sec</h3>
-    </div>
-
-    <div class="kart">
-      <span>02</span>
-      <h3>Rezervasiya et</h3>
-    </div>
-
-    <div class="kart">
-      <span>03</span>
-      <h3>Bal qazan</h3>
     </div>
 
   </div>
 
 </section>
 
-<section class="bal">
+<section class="offers" id="offers">
 
-  <h2>Bal sistemi</h2>
+  <div class="section-title">
 
-  <div class="seviyye">
-
-    <div>Bronze</div>
-    <div>Silver</div>
-    <div>Gold</div>
-    <div>Platinum</div>
+    <h2>Ən yaxşı təkliflər</h2>
 
   </div>
 
-  <div class="kart">
+  <div class="offers-grid">
 
-    <div id="ad">Ad Soyad</div>
-    <div id="bal">0 bal</div>
-    <div id="seviyyeAdi">Silver</div>
+    <div class="offer-card">
 
-    <div class="progress">
-      <div id="progress"></div>
+      <img src="image/ruby360.jpg" alt="offer">
+
+      <div class="offer-content">
+
+        <h3>50%-ə qədər endirim</h3>
+
+        <p>
+          Premium restoranlarda xüsusi endirimlər.
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="offer-card">
+
+      <img src="image/terrace145.jpg" alt="offer">
+
+      <div class="offer-content">
+
+        <h3>Bonus günü</h3>
+
+        <p>
+          Rezervasiya et və əlavə bonus qazan.
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="offer-card">
+
+      <img src="image/landmark.jpg" alt="offer">
+
+      <div class="offer-content">
+
+        <h3>VIP restoranlar</h3>
+
+        <p>
+          Bakının premium restoranlarını kəşf et.
+        </p>
+
+      </div>
+
     </div>
 
   </div>
 
 </section>
 
-<section class="elaqe">
+<section class="restaurants" id="restaurants">
 
-  <h2>Elaqe</h2>
+  <div class="section-title">
 
-  <div class="elaqeici">
+    <h2>Sənin üçün seçilmiş restoranlar</h2>
 
-    <div>
+  </div>
+
+  <div class="restaurants-grid">
+
+    <div class="restaurant-card">
+
+      <img src="image/ruby360.jpg" alt="Ruby360">
+
+      <div class="restaurant-content">
+
+        <h3>Ruby 360</h3>
+
+        <p>Panoramik restoran</p>
+
+        <span>⭐ 4.9</span>
+
+        <button>Rezerv et</button>
+
+      </div>
+
+    </div>
+
+    <div class="restaurant-card">
+
+      <img src="image/terrace145.jpg" alt="Terrace145">
+
+      <div class="restaurant-content">
+
+        <h3>Terrace 145</h3>
+
+        <p>Şəhərə birbaşa görüntü</p>
+
+        <span>⭐ 4.8</span>
+
+        <button>Rezerv et</button>
+
+      </div>
+
+    </div>
+
+    <div class="restaurant-card">
+
+      <img src="image/landmark.jpg" alt="Landmark">
+
+      <div class="restaurant-content">
+
+        <h3>Landmark</h3>
+
+        <p>Premium restoran</p>
+
+        <span>⭐ 4.7</span>
+
+        <button>Rezerv et</button>
+
+      </div>
+
+    </div>
+
+    <div class="restaurant-card">
+
+      <img src="image/indir (2).jpg" alt="Nar Baghi">
+
+      <div class="restaurant-content">
+
+        <h3>Central Baku</h3>
+
+        <p>Azərbaycan mətbəxi</p>
+
+        <span>⭐ 4.8</span>
+
+        <button>Rezerv et</button>
+
+      </div>
+
+    </div>
+
+    <div class="restaurant-card">
+
+      <img src="image/indir (1).jpg" alt="La Casa">
+
+      <div class="restaurant-content">
+
+        <h3>Fisincan</h3>
+
+        <p>Milli mətbəx</p>
+
+        <span>⭐ 4.6</span>
+
+        <button>Rezerv et</button>
+
+      </div>
+
+    </div>
+
+    <div class="restaurant-card">
+
+      <img src="image/images (8).jpg" alt="Sea View">
+
+      <div class="restaurant-content">
+
+        <h3>El Portalon</h3>
+
+        <p>İspan stili</p>
+
+        <span>⭐ 4.9</span>
+
+        <button>Rezerv et</button>
+
+      </div>
+
+    </div>
+
+    <div class="restaurant-card">
+
+      <img src="image/images (7).jpg" alt="Tokyo Sushi">
+
+      <div class="restaurant-content">
+
+        <h3>Mangal Steak House</h3>
+
+        <p>Ət həvəskarları üçün</p>
+
+        <span>⭐ 4.7</span>
+
+        <button>Rezerv et</button>
+
+      </div>
+
+    </div>
+
+    <div class="restaurant-card">
+
+      <img src="image/caption.jpg" alt="Garden House">
+
+      <div class="restaurant-content">
+
+        <h3>Garden House</h3>
+
+        <p>Ailəvi restoran</p>
+
+        <span>⭐ 4.8</span>
+
+        <button>Rezerv et</button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="categories" id="categories">
+
+  <div class="section-title">
+
+    <h2>Mətbəx seç</h2>
+
+  </div>
+
+  <div class="categories-grid">
+
+    <div class="category-card">
+
+      <img src="image/japan.jpg" alt="Japanese food">
+
+      <h3>Yapon mətbəxi</h3>
+
+    </div>
+
+    <div class="category-card">
+
+      <img src="image/chinese.jpg" alt="Chinese food">
+
+      <h3>Çin mətbəxi</h3>
+
+    </div>
+
+    <div class="category-card">
+
+      <img src="image/fransiz.jpg" alt="French food">
+
+      <h3>Fransız mətbəxi</h3>
+
+    </div>
+
+    <div class="category-card">
+
+      <img src="image/yunan.jpg" alt="Greek food">
+
+      <h3>Yunan mətbəxi</h3>
+
+    </div>
+
+    <div class="category-card">
+
+      <img src="image/indian.jpg" alt="Indian food">
+
+      <h3>Hindistan mətbəxi</h3>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="contact" id="contact">
+
+  <div class="section-title">
+
+    <h2>Əlaqə</h2>
+
+  </div>
+
+  <div class="contact-container">
+
+    <div class="contact-info">
+
+      <h3>Bizimlə əlaqə</h3>
+
       <p>+994 50 825 14 64</p>
-      <p>info@sebet.az</p>
-      <p>Baki 28 May</p>
+
+      <p>info@myrestaurants.az</p>
+
+      <p>Bakı, Azərbaycan</p>
+
     </div>
 
-    <div class="form">
+    <div class="contact-form">
 
-      <input class="input" placeholder="Ad">
-      <input class="input" placeholder="Email">
-      <textarea class="input" placeholder="Mesaj"></textarea>
+      <input type="text" placeholder="Ad">
 
-      <button id="gonder">Gonder</button>
+      <input type="email" placeholder="Email">
+
+      <textarea placeholder="Mesaj"></textarea>
+
+      <button>Göndər</button>
 
     </div>
 
@@ -188,10 +404,14 @@
 
 </section>
 
-<footer class="alt">
+<footer class="footer">
 
-  <span>SebetAZ</span>
-  <p>2025 Butun huquqlar qorunur</p>
+  <p>
+    MyRestaurants.&#174;
+    <br>
+    <br>
+    Bütün hüquqlar qorunur.
+  </p>
 
 </footer>
 
